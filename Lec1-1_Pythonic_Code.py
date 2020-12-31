@@ -121,15 +121,6 @@ print(map(f, ex))
 for i in map(f, ex):
     print(i)
 
-result = map(f, ex)
-print(result)
-print(next(result))
-
-import sys
-sys.getsizeof(ex)
-sys.getsizeof((map(lambda x: x+x, ex)))
-sys.getsizeof(list(map(lambda x: x+x, ex)))
-
 #reduce with lambda
 
 from functools import reduce
@@ -138,5 +129,40 @@ print(reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]))
 def factorial(n):
     return reduce(
             lambda x, y: x*y, range(1, n+1))
-
 print(factorial(5))
+
+#Asterika(*)
+
+def asterisk_test1(a,*args):
+    print(a,args)
+    print(type(args))
+
+asterisk_test1(1,2,3,4,5,6)
+
+def asterisk_test2(a,**kargs):
+    print(a,kargs)
+    print(type(kargs))
+
+asterisk_test2(1,b=2,c=3,d=4,e=5,f=6)
+
+def asterisk_test3(a,*args):
+    print(a,args[0])
+    print(type(args))
+
+asterisk_test3(1,(2,3,4,5,6))
+
+def asterisk_test4(a,args):
+    print(a,*args)
+    print(type(args))
+
+asterisk_test4(1,(2,3,4,5,6))
+
+a, b, c = ([1,2],[3,4],[5,6])
+print(a,b,c)
+
+data = ([1,2],[3,4],[5,6])
+print(*data)
+
+for data in zip(*([1,2],[3,4],[5,6])):
+    print(sum(data))
+
